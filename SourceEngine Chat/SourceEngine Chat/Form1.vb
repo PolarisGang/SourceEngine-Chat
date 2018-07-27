@@ -103,12 +103,14 @@ Public Class Form1
             If Not KeyToBind.Text = "" AndAlso Not ChatMsg.Text = "" Then
                 KeyToBind.ReadOnly = True
                 KeyBind = KeyToBind.Text
-            End If
+If ChatMsg.Text.Contains(";") Then ChatMsg.Text = ChatMsg.Replace(";", "")
             AddChat(ChatMsg.Text, KeyBind, ChatCount)
             ChatCount += 1
             ChatMsg.Clear()
+End If
         Else
             If Not ChatMsg.Text = "" Then
+If ChatMsg.Text.Contains(";") Then ChatMsg.Text = ChatMsg.Replace(";", "")
                 AddChat(ChatMsg.Text, KeyBind, ChatCount)
                 ChatCount += 1
                 ChatMsg.Clear()
